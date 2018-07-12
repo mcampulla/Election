@@ -1,0 +1,31 @@
+
+.door{
+    width: 250px; 
+    height: 250px; 
+    margin: 5px; 
+    background-image: url("../images/portone.png");
+    background-color: #fff;
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+    
+.door .inner {
+    color: #000;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 72px;
+    font-weight: bold;
+    background-color: rgb(255,255,255,0.5);
+}
+
+.door .inner:hover {
+    color: #f00;
+}
+
+.door-container a:hover {
+    color: #f00;
+    text-decoration: none;
+}
