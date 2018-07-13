@@ -62,6 +62,23 @@ App = {
     });
   },
 
+  getRandom: function() {
+    // web3.eth.getBalance("0x13B4E969EE11677D9E3b0a932B0BbdF92be9E1f9", function(err, result) {
+    //   if (err === null) {
+    //     console.log(result);
+    //   }   
+    // })    ;
+
+    var filter = web3.eth.filter('latest');
+    filter.watch(function(err, result) {
+      if (err === null) {
+        console.log(result);
+      } else {
+        console.log(err);
+      }    
+    })    
+  },
+
   play: function() {
     var gioconeInstance;
     var loader = $("#loader");
@@ -77,11 +94,14 @@ App = {
       var etherAmount = web3.toBigNumber(ammount);
       var weiValue = web3.toWei(etherAmount,'ether');
       console.log("set: " + doorset);
-      console.log("door: " + door);
-      return gioconeInstance.play(doorset, door, { from: App.account, value: weiValue });
+      console.log("door: " + door);   
+
+      return gioconeInstance.play(doorset, door, { from: App.account, value: weiValue, gas:140000  });
     }).then(function(result) {
 
       console.log(result);
+
+     
 
       $('#confirmModal').modal('hide');
 
